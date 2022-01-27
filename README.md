@@ -11,3 +11,8 @@ As per title.
 
 - [Kata page](https://www.codewars.com/kata/550f22f4d758534c1100025a)
 - [My solution](src/dir_reduc/core.clj)
+
+### Tribonacci Sequence
+
+- [Kata page](https://www.codewars.com/kata/556deca17c58da83c00002db)
+- [My solution](src/tribonacci/core.clj)
