@@ -16,3 +16,8 @@ As per title.
 
 - [Kata page](https://www.codewars.com/kata/556deca17c58da83c00002db)
 - [My solution](src/tribonacci/core.clj)
+
+### Vector Affinity
+
+- [Kata page](https://www.codewars.com/kata/5498505a43e0fd83620010a9)
+- [My solution](src/vector_affinity/core.clj)
