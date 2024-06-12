@@ -4,7 +4,7 @@
 
 (deftest a-test1
   (testing "Test 1"
-    (def ur ["olp" "love" "string"])
-    (def vr ["ulove" "alove" "holp" "sholp","vfmstring"])
-    (def rr ["love" "olp" "string"])
-    (is (= (in-array ur vr) rr))))
+    (let [ur ["olp" "love" "string"]
+          vr ["ulove" "alove" "holp" "sholp","vfmstring"]
+          rr ["love" "olp" "string"]]
+      (is (= (in-array ur vr) rr)))))
