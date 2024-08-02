@@ -1,6 +1,6 @@
-(ns vector-affinity.core-test
+(ns codewars.vector-affinity-test
   (:require [clojure.test :refer :all]
-            [vector-affinity.core :refer :all]))
+            [codewars.vector-affinity :refer :all]))
 
 (deftest SampleTests
   (is (= (vector-affinity [1 2 3 4] [1 2 3 5]) 0.75))

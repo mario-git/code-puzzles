@@ -1,6 +1,6 @@
-(ns tribonacci.core_test
+(ns codewars.tribonacci-test
   (:require [clojure.test :refer :all]
-            [tribonacci.core :refer [tribonacci]]))
+            [codewars.tribonacci :refer [tribonacci]]))
 
 (defn tester [a b exp]
   (testing (str "(tribonacci " a " " b ")")

@@ -1,4 +1,4 @@
-(ns tribonacci.core)
+(ns codewars.tribonacci)
 
 (defn tribonacci [[a b c] n]
   (loop [result [a b c]

@@ -1,7 +1,7 @@
-(ns complementary-dna.core-test
+(ns codewars.complementary-dna-test
   (:require
     [clojure.test :refer :all]
-    [complementary-dna.core :refer [dna-strand]]))
+    [codewars.complementary-dna :refer [dna-strand]]))
 
 (deftest sample-tests
   (is (= (dna-strand "ATCG") "TAGC"))

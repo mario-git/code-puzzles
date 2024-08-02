@@ -1,4 +1,4 @@
-(ns complementary-dna.core)
+(ns codewars.complementary-dna)
 
 (def ^:private complements
   {\A \T \C \G \G \C \T \A})

@@ -1,4 +1,4 @@
-(ns vector-affinity.core)
+(ns codewars.vector-affinity)
 
 (defn vector-affinity
   [a b]

@@ -1,0 +1,4 @@
+{:bb-min-version "1.3.191"
+ :tasks {nrepl {:task (shell "clj -M:nrepl -m nrepl.cmdline")}
+         t {:task (shell "clj -X:test")}
+         tr {:task (shell "clj -M:test-refresh")}}}

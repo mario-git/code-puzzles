@@ -1,6 +1,6 @@
-(ns which-are-in.core-test
+(ns codewars.which-are-in-test
   (:require [clojure.test :refer :all]
-            [which-are-in.core :refer :all]))
+            [codewars.which-are-in :refer :all]))
 
 (deftest a-test1
   (testing "Test 1"

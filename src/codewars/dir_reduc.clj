@@ -1,4 +1,4 @@
-(ns dir-reduc.core)
+(ns codewars.dir-reduc)
 
 (defn- opposites? [x y]
   (and (not= x y)

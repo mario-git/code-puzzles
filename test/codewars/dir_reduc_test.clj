@@ -1,6 +1,6 @@
-(ns dir-reduc.core-test
+(ns codewars.dir-reduc-test
   (:require [clojure.test :refer :all]
-            [dir-reduc.core :refer :all]))
+            [codewars.dir-reduc :refer :all]))
 
 (deftest dir-reduc-test
   (testing "Reduce to single value"
