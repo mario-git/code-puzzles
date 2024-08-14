@@ -32,3 +32,16 @@
 ; the one submitted to 4ever-clojure, for ClojureScript compatibility
   (fn [s]
     (apply str (filter #(contains? (set "ABCDEFGHIJKLMNOPQRSTUVWXYZ") %) s))))
+
+; Problem 30, Compress a Sequence
+(defn my-dedupe [xs]
+  (reduce
+   (fn [res curr] (if (= curr (last res)) res (conj res curr)))
+   [] xs))
+
+; Problem 32, Duplicate a Sequence
+(defn duplicate-seq [xs] (mapcat #(vector % %) xs))
+
+(comment
+; clever!
+  (fn [[& args]] (reduce #(conj %1 %2 %2) [] args)))

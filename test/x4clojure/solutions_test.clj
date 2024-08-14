@@ -17,3 +17,14 @@
   (is (= (get-the-caps "HeLlO, WoRlD!") "HLOWRD"))
   (is (empty? (get-the-caps "nothing")))
   (is (= (get-the-caps "$#A(*&987Zf") "AZ")))
+
+(deftest problem-30-compress-a-sequence
+  (is (= (apply str (my-dedupe "Leeeeeerrroyyy")) "Leroy"))
+  (is (= (my-dedupe [1 1 2 3 3 2 2 3]) '(1 2 3 2 3)))
+  (is (= (my-dedupe [[1 2] [1 2] [3 4] [1 2]]) '([1 2] [3 4] [1 2]))))
+
+(deftest problem-32-duplicate-a-sequence
+  (is   (= (duplicate-seq [1 2 3]) '(1 1 2 2 3 3)))
+  (is (= (duplicate-seq [:a :a :b :b]) '(:a :a :a :a :b :b :b :b)))
+  (is  (= (duplicate-seq [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4])))
+  (is  (= (duplicate-seq [44 33]) [44 44 33 33])))
