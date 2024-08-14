@@ -12,3 +12,8 @@
   (is (= (my-flatten '((1 2) 3 [4 [5 6]])) '(1 2 3 4 5 6)))
   (is (= (my-flatten ["a" ["b"] "c"]) '("a" "b" "c")))
   (is (= (my-flatten '((((:a))))) '(:a))))
+
+(deftest problem-29-get-the-caps
+  (is (= (get-the-caps "HeLlO, WoRlD!") "HLOWRD"))
+  (is (empty? (get-the-caps "nothing")))
+  (is (= (get-the-caps "$#A(*&987Zf") "AZ")))

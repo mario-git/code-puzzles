@@ -23,3 +23,12 @@
   (letfn [(my-flatten [coll]
             (if (sequential? coll) (mapcat my-flatten coll) [coll]))]
     #(my-flatten %)))
+
+; Problem 29, Get the Caps
+(defn get-the-caps [text]
+  (apply str (filter #(Character/isUpperCase %) text)))
+
+(comment
+; the one submitted to 4ever-clojure, for ClojureScript compatibility
+  (fn [s]
+    (apply str (filter #(contains? (set "ABCDEFGHIJKLMNOPQRSTUVWXYZ") %) s))))
