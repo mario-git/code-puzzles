@@ -15,17 +15,11 @@
   (def fibs (lazy-cat [0N 1N] (map + fibs (rest fibs)))))
 
 ; Problem 28, Flatten a Sequence
-(defn my-flatten [[x & xs]]
-  (when (some? x)
-    (if (not (sequential? x))
-      (cons x (trampoline my-flatten xs))
-      (concat (trampoline my-flatten x) (trampoline my-flatten xs)))))
+(defn my-flatten [coll]
+    (if (sequential? coll) (mapcat my-flatten coll) [coll]))
 
 (comment
-; what was submitted was this to make the __ stuff work
-(letfn [(my-flatten [[x & xs]]
-  (when (some? x)
-    (if (not (sequential? x))
-      (cons x (trampoline my-flatten xs))
-      (concat (trampoline my-flatten x) (trampoline my-flatten xs)))))]
-#(my-flatten %)))
+; submitted as
+  (letfn [(my-flatten [coll]
+            (if (sequential? coll) (mapcat my-flatten coll) [coll]))]
+    #(my-flatten %)))
