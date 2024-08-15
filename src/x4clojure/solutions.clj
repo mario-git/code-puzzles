@@ -45,3 +45,10 @@
 (comment
 ; clever!
   (fn [[& args]] (reduce #(conj %1 %2 %2) [] args)))
+
+; Problem 34, Implement range
+(defn my-range [x y]
+  (loop [curr x res []]
+    (if (= curr y)
+       res
+       (recur (inc curr) (conj res curr)))))
