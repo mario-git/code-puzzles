@@ -64,3 +64,11 @@
   "Problem 39, Interleave Two Seq"
   [c1 c2]
   (mapcat #(vector %1 %2) c1 c2))
+
+(defn my-interpose
+  "Problem 40, Interpose a Seq"
+  [x coll]
+  (loop [left (next coll) result [(first coll)]]
+    (if (nil? left)
+      result
+      (recur (next left) (conj result x (first left))))))

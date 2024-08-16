@@ -39,3 +39,8 @@
   (is (= (my-interleave [1 2] [3 4 5 6]) '(1 3 2 4)))
   (is (= (my-interleave [1 2 3 4] [5]) [1 5]))
   (is (= (my-interleave [30 20] [25 15]) [30 25 20 15])))
+
+(deftest problem-40-interpose-a-seq
+  (is (= (my-interpose 0 [1 2 3]) [1 0 2 0 3]))
+  (is (= (apply str (my-interpose ", " ["one" "two" "three"])) "one, two, three"))
+  (is (= (my-interpose :z [:a :b :c :d]) [:a :z :b :z :c :z :d])))
