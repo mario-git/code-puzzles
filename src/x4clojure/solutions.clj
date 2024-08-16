@@ -52,3 +52,6 @@
     (if (= curr y)
        res
        (recur (inc curr) (conj res curr)))))
+
+; Problem 39, Interleave Two Seq
+(defn my-interleave [c1 c2] (mapcat #(vector %1 %2) c1 c2))
