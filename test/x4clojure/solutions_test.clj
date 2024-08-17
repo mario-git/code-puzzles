@@ -49,3 +49,10 @@
   (is (= (drop-every-nth [1 2 3 4 5 6 7 8] 3) [1 2 4 5 7 8]))
   (is (= (drop-every-nth [:a :b :c :d :e :f] 2) [:a :c :e]))
   (is (= (drop-every-nth [1 2 3 4 5 6] 4) [1 2 3 5 6])))
+
+(deftest problem-42-factorial-fun
+  (is (= (factorial-fun 1) 1))
+  (is (= (factorial-fun 3) 6))
+  (is (= (factorial-fun 5) 120))
+  (is (= (factorial-fun 8) 40320)))
+

@@ -82,3 +82,8 @@
 ; nice ones
   (fn [coll x] (keep-indexed #(when (not (zero? (mod (inc %1) x))) %2) coll))
   (fn [s c] (mapcat #(take (dec c) %) (partition-all c s))))
+
+(defn factorial-fun
+  "Problem 42, Factorial Fun"
+  [n]
+  (reduce * (range 1 (inc n))))
