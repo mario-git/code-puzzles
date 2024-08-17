@@ -72,3 +72,13 @@
     (if (nil? left)
       result
       (recur (next left) (conj result x (first left))))))
+
+(defn drop-every-nth
+  "Problem 41, Drop Every Nth Item"
+  [coll n]
+  (filter some? (map #(when (pos? (mod (inc %1) n)) %2) (range) coll)))
+
+(comment
+; nice ones
+  (fn [coll x] (keep-indexed #(when (not (zero? (mod (inc %1) x))) %2) coll))
+  (fn [s c] (mapcat #(take (dec c) %) (partition-all c s))))

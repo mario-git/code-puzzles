@@ -44,3 +44,8 @@
   (is (= (my-interpose 0 [1 2 3]) [1 0 2 0 3]))
   (is (= (apply str (my-interpose ", " ["one" "two" "three"])) "one, two, three"))
   (is (= (my-interpose :z [:a :b :c :d]) [:a :z :b :z :c :z :d])))
+
+(deftest problem-41-drop-every-nth-item
+  (is (= (drop-every-nth [1 2 3 4 5 6 7 8] 3) [1 2 4 5 7 8]))
+  (is (= (drop-every-nth [:a :b :c :d :e :f] 2) [:a :c :e]))
+  (is (= (drop-every-nth [1 2 3 4 5 6] 4) [1 2 3 5 6])))
