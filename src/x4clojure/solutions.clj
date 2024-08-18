@@ -68,10 +68,7 @@
 (defn my-interpose
   "Problem 40, Interpose a Seq"
   [x coll]
-  (loop [left (next coll) result [(first coll)]]
-    (if (nil? left)
-      result
-      (recur (next left) (conj result x (first left))))))
+  (rest (reduce #(conj %1 x %2) [] coll)))
 
 (defn drop-every-nth
   "Problem 41, Drop Every Nth Item"
