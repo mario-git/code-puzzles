@@ -84,3 +84,12 @@
   "Problem 42, Factorial Fun"
   [n]
   (reduce * (range 1 (inc n))))
+
+(defn reverse-interleave
+  "Problem 43, Reverse Interleave"
+  [coll n]
+  (apply map list (partition n coll)))
+
+(comment
+; nice one
+  (fn [s n] (for [i (range n)] (take-nth n (drop i s)))))
