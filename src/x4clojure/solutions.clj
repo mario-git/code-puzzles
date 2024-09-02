@@ -115,3 +115,13 @@
   "Problem 46, Flipping out"
   [f]
   #(f %2 %1))
+
+(defn split-by-type
+  "Problem 50, Split by Type"
+  [coll]
+  (vals (group-by type coll)))
+
+(comment
+
+  ;
+  )

@@ -73,3 +73,8 @@
   (is (= true ((flip-out >) 7 8)))
   (is (= 4 ((flip-out quot) 2 8)))
   (is (= [1 2 3] ((flip-out take) [1 2 3 4 5] 3))))
+
+(deftest problem-50-split-by-type
+  (is (= (set (split-by-type [1 :a 2 :b 3 :c])) #{[1 2 3] [:a :b :c]}))
+  (is (= (set (split-by-type [:a "foo"  "bar" :b])) #{[:a :b] ["foo" "bar"]}))
+  (is (= (set (split-by-type [[1 2] :a [3 4] 5 6 :b])) #{[[1 2] [3 4]] [:a :b] [5 6]})))
