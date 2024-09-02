@@ -67,3 +67,9 @@
   (is (= (rotate-seq 6 [1 2 3 4 5]) '(2 3 4 5 1)))
   (is (= (rotate-seq 1 '(:a :b :c)) '(:b :c :a)))
   (is (= (rotate-seq -4 '(:a :b :c)) '(:c :a :b))))
+
+(deftest problem-46-flipping-out
+  (is (= 3 ((flip-out nth) 2 [1 2 3 4 5])))
+  (is (= true ((flip-out >) 7 8)))
+  (is (= 4 ((flip-out quot) 2 8)))
+  (is (= [1 2 3] ((flip-out take) [1 2 3 4 5] 3))))

@@ -110,3 +110,8 @@
   (fn [n coll]
     (let [[f s] (split-at (mod n (count coll)) coll)]
       (concat s f))))
+
+(defn flip-out
+  "Problem 46, Flipping out"
+  [f]
+  #(f %2 %1))
