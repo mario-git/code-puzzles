@@ -93,3 +93,20 @@
 (comment
 ; nice one
   (fn [s n] (for [i (range n)] (take-nth n (drop i s)))))
+
+(defn rotate-seq
+  "Problem 44, Rotate Sequence"
+  [n coll]
+  (let [length (count coll)
+        mod-n (mod n length)
+        steps (if (pos? mod-n) mod-n (+ length mod-n))]
+    (->> (cycle coll)
+         (drop steps)
+         (take length))))
+
+(comment
+; nice ones
+  #(let[n (mod %1 (count %2))] (concat (drop n %2) (take n %2)))
+  (fn [n coll]
+    (let [[f s] (split-at (mod n (count coll)) coll)]
+      (concat s f))))

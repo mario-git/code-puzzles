@@ -60,3 +60,10 @@
   (is (= (reverse-interleave [1 2 3 4 5 6] 2) '((1 3 5) (2 4 6))))
   (is (= (reverse-interleave (range 9) 3) '((0 3 6) (1 4 7) (2 5 8))))
   (is (= (reverse-interleave (range 10) 5) '((0 5) (1 6) (2 7) (3 8) (4 9)))))
+
+(deftest problem-44-rotate-seq
+  (is (= (rotate-seq 2 [1 2 3 4 5]) '(3 4 5 1 2)))
+  (is (= (rotate-seq -2 [1 2 3 4 5]) '(4 5 1 2 3)))
+  (is (= (rotate-seq 6 [1 2 3 4 5]) '(2 3 4 5 1)))
+  (is (= (rotate-seq 1 '(:a :b :c)) '(:b :c :a)))
+  (is (= (rotate-seq -4 '(:a :b :c)) '(:c :a :b))))
