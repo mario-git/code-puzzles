@@ -84,3 +84,8 @@
   (is (= (longest-incr-subs [5 6 1 3 2 7]) [5 6]))
   (is (= (longest-incr-subs [2 3 3 4 5]) [3 4 5]))
   (is (= (longest-incr-subs [7 6 5 4]) [])))
+
+(deftest problem-54-partition-a-sequence
+  (is (= (my-partition 3 (range 9)) '((0 1 2) (3 4 5) (6 7 8))))
+  (is (= (my-partition 2 (range 8)) '((0 1) (2 3) (4 5) (6 7))))
+  (is (= (my-partition 3 (range 8)) '((0 1 2) (3 4 5)))))

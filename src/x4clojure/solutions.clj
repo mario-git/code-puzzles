@@ -139,6 +139,15 @@
        last)
       []))
 
+(defn my-partition
+  "Problem 54, Partition a Sequence"
+  [n coll]
+  (loop [result [] coll-left coll]
+    (let [curr (take n coll-left)]
+      (if (< (count curr) n)
+        result
+        (recur (conj result curr) (drop n coll-left))))))
+
 (comment
 
   ;
