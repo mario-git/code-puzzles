@@ -124,20 +124,19 @@
 (defn longest-incr-subs
   "Problem 53, Longest Increasing Sub-Seq"
   [coll]
-  ; TODO: find a way to avoid the top level "or"
-  (or (->>
-       (reduce
-        (fn [res curr]
-          (if (= (inc (last res)) curr)
-            (conj res curr)
-            (conj res :split curr)))
-        [(first coll)]
-        coll)
-       (partition-by #(= % :split))
-       (filter #(> (count %) 1))
-       (sort-by count)
-       last)
-      []))
+  (->>
+   (reduce
+    (fn [res curr]
+      (if (= (inc (last res)) curr)
+        (conj res curr)
+        (conj res :split curr)))
+    [(first coll)]
+    coll)
+   (partition-by #(= % :split))
+   (filter #(> (count %) 1))
+   (sort-by count)
+   last
+   (#(or % []))))
 
 (defn my-partition
   "Problem 54, Partition a Sequence"
