@@ -148,7 +148,11 @@
         result
         (recur (conj result curr) (drop n coll-left))))))
 
-(comment
+(defn count-occurences
+  "Problem 55, Count Occurences"
+  [coll]
+  (reduce (fn [res [group all-grouped]] (assoc res group (count all-grouped))) {} (group-by identity coll)))
 
-  ;
-  )
+(comment
+  ; nice one
+  (fn [x] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} x)))

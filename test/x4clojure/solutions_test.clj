@@ -90,3 +90,8 @@
   (is (= (my-partition 3 (range 9)) '((0 1 2) (3 4 5) (6 7 8))))
   (is (= (my-partition 2 (range 8)) '((0 1) (2 3) (4 5) (6 7))))
   (is (= (my-partition 3 (range 8)) '((0 1 2) (3 4 5)))))
+
+(deftest problem-55-count-occurrences
+  (is (= (count-occurences [1 1 2 3 2 1 1]) {1 4, 2 2, 3 1}))
+  (is (= (count-occurences [:b :a :b :a :b]) {:a 2, :b 3}))
+  (is (= (count-occurences '([1 2] [1 3] [1 3])) {[1 2] 1, [1 3] 2})))
