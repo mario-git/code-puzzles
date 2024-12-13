@@ -95,3 +95,9 @@
   (is (= (count-occurences [1 1 2 3 2 1 1]) {1 4, 2 2, 3 1}))
   (is (= (count-occurences [:b :a :b :a :b]) {:a 2, :b 3}))
   (is (= (count-occurences '([1 2] [1 3] [1 3])) {[1 2] 1, [1 3] 2})))
+
+(deftest problem-56-find-distinct-items
+  (is (= (my-distinct [1 2 1 3 1 2 4]) [1 2 3 4]))
+  (is (= (my-distinct [:a :a :b :b :c :c]) [:a :b :c]))
+  (is (= (my-distinct '([2 4] [1 2] [1 3] [1 3])) '([2 4] [1 2] [1 3])))
+  (is (= (my-distinct (range 50)) (range 50))))

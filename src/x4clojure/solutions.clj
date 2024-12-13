@@ -155,3 +155,8 @@
 (comment
   ; nice one
   (fn [x] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} x)))
+
+(defn my-distinct
+  "Problem 56, Find Distinct Items"
+  [coll]
+  (reduce (fn [res curr] (if (some #{curr} res) res (conj res curr))) [(first coll)] (rest coll)))
