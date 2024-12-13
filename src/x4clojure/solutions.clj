@@ -160,3 +160,9 @@
   "Problem 56, Find Distinct Items"
   [coll]
   (reduce (fn [res curr] (if (some #{curr} res) res (conj res curr))) [(first coll)] (rest coll)))
+
+(defn my-comp
+  "Problem 58, Function Composition"
+  [& fns]
+  (let [[f1 & frest] (reverse fns)]
+    (fn [& args] (reduce #(%2 %1) (apply f1 args) frest))))
