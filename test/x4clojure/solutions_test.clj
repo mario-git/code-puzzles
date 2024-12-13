@@ -107,3 +107,8 @@
   (is (= 5 ((my-comp (partial + 3) second) [1 2 3 4])))
   (is (= true ((my-comp zero? #(mod % 8) +) 3 5 7 9)))
   (is (= "HELLO" ((my-comp #(.toUpperCase %) #(apply str %) take) 5 "hello world"))))
+
+(deftest problem-59-juxt
+  (is (= [21 6 1] ((my-juxt + max min) 2 3 5 1 6 4)))
+  (is (= ["HELLO" 5] ((my-juxt #(.toUpperCase %) count) "hello")))
+  (is (= [2 6 4] ((my-juxt :a :c :b) {:a 2, :b 4, :c 6, :d 8 :e 10}))))

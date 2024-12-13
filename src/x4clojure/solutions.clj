@@ -166,3 +166,9 @@
   [& fns]
   (let [[f1 & frest] (reverse fns)]
     (fn [& args] (reduce #(%2 %1) (apply f1 args) frest))))
+
+(defn my-juxt
+  "Problem 59, Juxtaposition"
+  [& fns]
+  (fn [& args]
+    (map #(apply % args) fns)))
