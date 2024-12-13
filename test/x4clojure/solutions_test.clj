@@ -117,3 +117,8 @@
   (is (= (take 5 (my-reductions + (range))) [0 1 3 6 10]))
   (is (= (my-reductions conj [1] [2 3 4]) [[1] [1 2] [1 2 3] [1 2 3 4]]))
   (is (= (last (my-reductions * 2 [3 4 5])) (reduce * 2 [3 4 5]) 120)))
+
+(deftest problem-63-group-by
+  (is (= (my-group-by #(> % 5) #{1 3 6 8}) {false [1 3], true [6 8]}))
+  (is (= (my-group-by #(apply / %) [[1 2] [2 4] [4 6] [3 6]]) {1/2 [[1 2] [2 4] [3 6]], 2/3 [[4 6]]}))
+  (is (= (my-group-by count [[1] [1 2] [3] [1 2 3] [2 3]]) {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]})))

@@ -182,3 +182,12 @@
     (if (empty? coll)
       [init]
       (cons init (my-reductions f (f init (first coll)) (rest coll)))))))
+
+(defn my-group-by
+  "Problem 63: Group a Sequence"
+  [f s]
+  (loop [result {} left s]
+    (if (empty? left)
+      result
+      (let [curr (first left)]
+        (recur (update result (f curr) #(concat % [curr])) (rest left))))))
