@@ -172,3 +172,13 @@
   [& fns]
   (fn [& args]
     (map #(apply % args) fns)))
+
+(defn my-reductions
+  "Problem 60, Sequence Reductions"
+  ([f coll]
+   (my-reductions f (first coll) (rest coll)))
+  ([f init coll]
+   (lazy-seq
+    (if (empty? coll)
+      [init]
+      (cons init (my-reductions f (f init (first coll)) (rest coll)))))))
