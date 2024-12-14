@@ -122,3 +122,10 @@
   (is (= (my-group-by #(> % 5) #{1 3 6 8}) {false [1 3], true [6 8]}))
   (is (= (my-group-by #(apply / %) [[1 2] [2 4] [4 6] [3 6]]) {1/2 [[1 2] [2 4] [3 6]], 2/3 [[4 6]]}))
   (is (= (my-group-by count [[1] [1 2] [3] [1 2 3] [2 3]]) {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]})))
+
+(deftest problem-65-black-box-testing
+  (is (= :map (get-coll-type {:a 1, :b 2})))
+  (is (= :list (get-coll-type (range (rand-int 20)))))
+  (is (= :vector (get-coll-type [1 2 3 4 5 6])))
+  (is (= :set (get-coll-type #{10 (rand-int 5)})))
+  (is (= [:map :set :vector :list] (map get-coll-type [{} #{} [] ()]))))

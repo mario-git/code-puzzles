@@ -191,3 +191,14 @@
       result
       (let [curr (first left)]
         (recur (update result (f curr) #(concat % [curr])) (rest left))))))
+
+(defn get-coll-type
+  "Problem 65: Black Box Testing"
+  [coll]
+  (let [[rand1 rand2] (map #(keyword (str "rand-" %)) (repeatedly 2 random-uuid))]
+    (cond
+      (= {} coll) :map
+      (coll? (first coll)) :map
+      (= 1 (count (filter #{rand1} (into coll [rand1 rand1])))) :set
+      (= (first (conj coll rand1 rand2)) rand2) :list
+      :else :vector)))
