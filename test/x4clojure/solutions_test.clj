@@ -129,3 +129,9 @@
   (is (= :vector (get-coll-type [1 2 3 4 5 6])))
   (is (= :set (get-coll-type #{10 (rand-int 5)})))
   (is (= [:map :set :vector :list] (map get-coll-type [{} #{} [] ()]))))
+
+(deftest problem-66-greatest-common-divisor
+  (is (= (greatest-common-divisor 2 4) 2))
+  (is (= (greatest-common-divisor 10 5) 5))
+  (is (= (greatest-common-divisor 5 7) 1))
+  (is (= (greatest-common-divisor 1023 858) 33)))

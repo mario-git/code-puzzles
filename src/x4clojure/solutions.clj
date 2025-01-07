@@ -202,3 +202,9 @@
       (= 1 (count (filter #{rand1} (into coll [rand1 rand1])))) :set
       (= (first (conj coll rand1 rand2)) rand2) :list
       :else :vector)))
+
+(defn greatest-common-divisor
+  "Problem 66: Greatest Common Divisor"
+  [int1 int2])
+
+; TODO: RIGUARDA 1) old solutions 2) apply usage in my-comp 3) lazy-seq usage in my-reductions
