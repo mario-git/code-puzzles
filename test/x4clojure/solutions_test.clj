@@ -135,3 +135,8 @@
   (is (= (greatest-common-divisor 10 5) 5))
   (is (= (greatest-common-divisor 5 7) 1))
   (is (= (greatest-common-divisor 1023 858) 33)))
+
+(deftest problem-67-prime-numbers
+  (is (= (prime-numbers 2) [2 3]))
+  (is (= (prime-numbers 5) [2 3 5 7 11]))
+  (is (= (last (prime-numbers 100)) 541)))
