@@ -205,6 +205,8 @@
 
 (defn greatest-common-divisor
   "Problem 66: Greatest Common Divisor"
-  [int1 int2])
+  [int1 int2]
+  (let [divisors (fn [n] (filter (comp zero? (partial rem n)) (range 1 (inc n))))]
+    (apply max (filter (set (divisors int1)) (divisors int2)))))
 
 ; TODO: RIGUARDA 1) old solutions 2) apply usage in my-comp 3) lazy-seq usage in my-reductions
