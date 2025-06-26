@@ -150,3 +150,12 @@
   (is (= (sort-words "Have a nice day.") ["a" "day" "Have" "nice"]))
   (is (= (sort-words "Clojure is a fun language!") ["a" "Clojure" "fun" "is" "language"]))
   (is (= (sort-words "Fools fall for foolish follies.") ["fall" "follies" "foolish" "Fools" "for"])))
+
+(deftest problem-73-analyze-tic-tac-toe-board
+  (is (= nil (tic-tac-toe-result [[:e :e :e] [:e :e :e] [:e :e :e]])))
+  (is (= :x (tic-tac-toe-result [[:x :e :o] [:x :e :e] [:x :e :o]])))
+  (is (= :o (tic-tac-toe-result [[:e :x :e] [:o :o :o] [:x :e :x]])))
+  (is (= nil (tic-tac-toe-result [[:x :e :o] [:x :x :e] [:o :x :o]])))
+  (is (= :x (tic-tac-toe-result [[:x :e :e] [:o :x :e] [:o :e :x]])))
+  (is (= :o (tic-tac-toe-result [[:x :e :o] [:x :o :e] [:o :e :x]])))
+  (is (= nil (tic-tac-toe-result [[:x :o :x] [:x :o :x] [:o :x :o]]))))

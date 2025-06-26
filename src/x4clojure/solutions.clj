@@ -241,6 +241,10 @@
   [text]
   (->> (str/split text #" ") (sort-by str/lower-case) (map #(str/replace % #"\W" ""))))
 
+(defn tic-tac-toe-result
+  "Problem 73: Analyze a Tic-Tac-Toe Board"
+  [board])
+
 (comment
 
   ;
