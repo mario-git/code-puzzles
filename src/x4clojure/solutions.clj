@@ -209,6 +209,19 @@
   (let [divisors (fn [n] (filter #(zero? (mod n %)) (range 1 (inc n))))]
     (apply max (filter (set (divisors int1)) (divisors int2)))))
 
-(defn prime-numbers [n])
+(defn prime-numbers
+  "Problem 67: Prime Numbers"
+   [n]
+  (loop [left n temp-primes [] curr 2]
+    (if (zero? left)
+      temp-primes
+      (let [prime? (every? #(not ( zero? (mod curr %))) temp-primes)]
+        (recur (if prime? (dec left) left)
+               (if prime? (conj temp-primes curr) temp-primes)
+               (inc curr))))))
 
+(comment
+
+  ;
+  )
 ; TODO: RIGUARDA 1) old solutions 2) apply usage in my-comp 3) lazy-seq usage in my-reductions 4) JUXT!!!
