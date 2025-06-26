@@ -1,4 +1,5 @@
-(ns x4clojure.solutions)
+(ns x4clojure.solutions
+  (:require [clojure.string :as str]))
 
 ; Solutions to 4clojure problems. Not all of them, skipping trivial ones
 
@@ -233,6 +234,12 @@
                               (update r k f v))))
                         acc (first maps-left))]
         (recur res (next maps-left))))))
+
+; on the browser version you have to ref the whole clojure.string namespace at each related call
+(defn sort-words
+  "Problem 70: Word Sorting"
+  [text]
+  (->> (str/split text #" ") (sort-by str/lower-case) (map #(str/replace % #"\W" ""))))
 
 (comment
 
