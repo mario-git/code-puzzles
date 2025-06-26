@@ -220,6 +220,20 @@
                (if prime? (conj temp-primes curr) temp-primes)
                (inc curr))))))
 
+(defn my-merge-with
+  "Problem 69: Merge with a Function"
+  [f & maps]
+  (loop [acc {} maps-left maps]
+    (if (nil? maps-left)
+      acc
+      (let [res (reduce (fn [r curr]
+                          (let [k (first curr) v (second curr)]
+                            (if (nil? (get r k))
+                              (assoc r k v)
+                              (update r k f v))))
+                        acc (first maps-left))]
+        (recur res (next maps-left))))))
+
 (comment
 
   ;
