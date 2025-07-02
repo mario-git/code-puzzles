@@ -243,7 +243,30 @@
 
 (defn tic-tac-toe-result
   "Problem 73: Analyze a Tic-Tac-Toe Board"
-  [board])
+  [board]
+  (let [board-expanded {:row1 (get board 0)
+                        :row2 (get board 1)
+                        :row3 (get board 2)
+                        :col1 [(get-in board [0 0])
+                               (get-in board [1 0])
+                               (get-in board [2 0])]
+                        :col2 [(get-in board [0 1])
+                               (get-in board [1 1])
+                               (get-in board [2 1])]
+                        :col3 [(get-in board [0 2])
+                               (get-in board [1 2])
+                               (get-in board [2 2])]
+                        :diag1 [(get-in board [0 0])
+                                (get-in board [1 1])
+                                (get-in board [2 2])]
+                        :diag2 [(get-in board [2 0])
+                                (get-in board [1 1])
+                                (get-in board [0 2])]}]
+    (when-let [winner (some (fn [player]
+                              (when (some #(every? (fn [x] (= player x)) %) (vals board-expanded))
+                                player))
+                            [:x :o])]
+      winner)))
 
 (comment
 
