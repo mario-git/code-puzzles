@@ -159,3 +159,7 @@
   (is (= :x (tic-tac-toe-result [[:x :e :e] [:o :x :e] [:o :e :x]])))
   (is (= :o (tic-tac-toe-result [[:x :e :o] [:x :o :e] [:o :e :x]])))
   (is (= nil (tic-tac-toe-result [[:x :o :x] [:x :o :x] [:o :x :o]]))))
+
+(deftest problem-74-perfect-squares
+  (is (= (filter-perfect-squares-from "4,5,6,7,8,9") "4,9"))
+  (is (= (filter-perfect-squares-from "15,16,25,36,37") "16,25,36")))

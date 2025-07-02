@@ -268,6 +268,16 @@
                             [:x :o])]
       winner)))
 
+(defn filter-perfect-squares-from
+  "Problem 74: filter perfect squares"
+  [string-of-ints]
+  (let [;cljs version for browser: #(-> % js/Number js/Math.sqrt js/Number.isInteger)
+        perfect-square? #(clojure.string/ends-with? (-> % parse-long Math/sqrt str ) ".0")
+        filter-perfect-squares #(filter perfect-square? %)]
+    (->> (clojure.string/split string-of-ints #",")
+         filter-perfect-squares
+         (clojure.string/join "," ))))
+
 (comment
 
   ;
