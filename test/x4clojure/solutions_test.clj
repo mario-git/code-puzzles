@@ -163,3 +163,9 @@
 (deftest problem-74-perfect-squares
   (is (= (filter-perfect-squares-from "4,5,6,7,8,9") "4,9"))
   (is (= (filter-perfect-squares-from "15,16,25,36,37") "16,25,36")))
+
+(deftest problem-75-totient
+  (is (= (totient 1) 1))
+  (is (= (totient 10) (count '(1 3 7 9)) 4))
+  (is (= (totient 40) 16))
+  (is (= (totient 99) 60)))

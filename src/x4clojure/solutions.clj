@@ -278,8 +278,11 @@
          filter-perfect-squares
          (clojure.string/join "," ))))
 
+(defn totient
+  "Problem 75: Euler's Totient Function"
+  [n])
+
 (comment
 
   ;
   )
-; TODO: RIGUARDA 1) old solutions 2) apply usage in my-comp 3) lazy-seq usage in my-reductions 4) JUXT!!!
