@@ -280,7 +280,16 @@
 
 (defn totient
   "Problem 75: Euler's Totient Function"
-  [n])
+  [n]
+  (let [divisors-fn (fn [n] (filter #(zero? (mod n %)) (range 1 (inc n))))
+        n-divisors (into #{} (rest (divisors-fn n)))]
+    (loop [curr 2 co-primes-count 1]
+      (if (>= curr n)
+        co-primes-count
+        (recur (inc curr)
+               (if (some n-divisors (divisors-fn curr))
+                 co-primes-count
+                 (inc co-primes-count)))))))
 
 (comment
 
