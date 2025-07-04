@@ -216,7 +216,7 @@
   (loop [left n temp-primes [] curr 2]
     (if (zero? left)
       temp-primes
-      (let [prime? (every? #(not ( zero? (mod curr %))) temp-primes)]
+      (let [prime? (every? #(not (zero? (mod curr %))) temp-primes)]
         (recur (if prime? (dec left) left)
                (if prime? (conj temp-primes curr) temp-primes)
                (inc curr))))))
