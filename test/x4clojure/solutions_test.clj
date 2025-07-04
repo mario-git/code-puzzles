@@ -169,3 +169,7 @@
   (is (= (totient 10) (count '(1 3 7 9)) 4))
   (is (= (totient 40) 16))
   (is (= (totient 99) 60)))
+
+(deftest problem-77-anagram-finder
+  (is (= (find-anagrams ["meat" "mat" "team" "mate" "eat"]) #{#{"meat" "team" "mate"}}))
+  (is (= (find-anagrams ["veer" "lake" "item" "kale" "mite" "ever"]) #{#{"veer" "ever"} #{"lake" "kale"} #{"mite" "item"}})))
