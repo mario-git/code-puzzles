@@ -293,7 +293,21 @@
 
 (defn find-anagrams
   "Problem 77: Anagram Finder"
-  [words])
+  [words]
+  (let [sort-word (fn [w] (-> w sort (#(apply str %))))]
+    (->> (reduce (fn [res curr]
+                   (let [curr-sorted (sort-word curr)]
+                     (if (res curr-sorted)
+                       (update res curr-sorted conj curr)
+                       (assoc res curr-sorted #{curr}))))
+                 {} words)
+         vals
+         (#(filter (fn [x] (> (count x) 1)) %))
+         (into #{}))))
+
+(comment
+  ; clever!
+  (fn [s] (->> (group-by set s) (vals) (map set) (filter #(> (count %) 1)) (set))))
 
 (comment
 
