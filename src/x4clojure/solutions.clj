@@ -309,6 +309,12 @@
   ; clever!
   (fn [s] (->> (group-by set s) (vals) (map set) (filter #(> (count %) 1)) (set))))
 
+(defn my-trampoline
+  "Problem 78: Reimplement Trampoline"
+  [f & args]
+  (let [res (if (nil? args) (f) (apply f args))]
+    (if (fn? res) (my-trampoline res) res)))
+
 (comment
 
   ;
