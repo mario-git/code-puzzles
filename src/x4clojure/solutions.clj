@@ -315,6 +315,11 @@
   (let [res (if (nil? args) (f) (apply f args))]
     (if (fn? res) (my-trampoline res) res)))
 
+;TODO: later
+#_(defn triangle-min-path
+  "Problem 79: Triangle Minimal Path"
+  [triangle])
+
 (comment
 
   ;
