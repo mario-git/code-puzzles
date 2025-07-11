@@ -325,6 +325,12 @@
   [n]
   (= n (apply +  (filter #(zero? (mod n %)) (range 1 n)))))
 
+; Problem 81, Set Intersection #(into #{} (filter %1 %2))
+
+; Problem 82, another hard
+; ...
+
+; Problem 83, A Half-Truth (fn [& args] (= 2 (count (distinct args))))
 (comment
 
   ;
