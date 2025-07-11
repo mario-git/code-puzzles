@@ -320,6 +320,11 @@
   "Problem 79: Triangle Minimal Path"
   [triangle])
 
+(defn perfect-number?
+  "Problem 80: Perfect Numbers"
+  [n]
+  (= n (apply +  (filter #(zero? (mod n %)) (range 1 n)))))
+
 (comment
 
   ;

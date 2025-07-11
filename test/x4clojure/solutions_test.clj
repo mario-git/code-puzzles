@@ -201,3 +201,10 @@
                           [5 7 3 5 1 4]])
       (+ 3 4 3 2 7 1)
       20)))
+
+(deftest problem-80-perfect-number
+  (is (= (perfect-number? 6) true))
+  (is (= (perfect-number? 7) false))
+  (is (= (perfect-number? 496) true))
+  (is (= (perfect-number? 500) false))
+  (is (= (perfect-number? 8128) true)))
