@@ -3,7 +3,7 @@ import unittest
 
 class AnagramsTest(unittest.TestCase):
     def test_normalize(self):
-        self.assertEqual('deestu', a.normalize("étude's"))
+        self.assertEqual("'deestu", a.normalize("étude's"))
 
     def test_anagrams_from_list(self):
         words = ['boaster', 'boaters', 'borates', 'enlist', 'fresher', 'inlets', 'kinship', 'knits', 'listen', 'pinkish', 'refresh', 'rots', 'silent', 'sinks', 'skins', 'sort', 'stink']

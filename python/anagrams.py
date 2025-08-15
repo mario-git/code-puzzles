@@ -3,7 +3,7 @@ import unicodedata
 #import json
 
 def normalize(word):
-    _w = word.lower().replace("'", "").strip()
+    _w = word.lower()
     return "".join(sorted(unicodedata.normalize('NFKD', _w).encode('ASCII', 'ignore').decode('ascii')))
 
 def group_anagrams(words):
