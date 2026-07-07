@@ -13,3 +13,7 @@ class NeetcodeTest(unittest.TestCase):
         self.assertEqual(normalize(n.groupAnagrams(["act","pots","tops","cat","stop","hat"])), normalize([['act', 'cat'], ['hat'], ['pots', 'tops', 'stop']]))
         self.assertEqual(n.groupAnagrams(["x"]), [["x"]])
         self.assertEqual(n.groupAnagrams([""]), [[""]])
+
+    def test_top_k_frequent(self):
+        self.assertEqual(sorted(n.topKFrequent([1,2,2,3,3,3], 2)), [2,3])
+        self.assertEqual(n.topKFrequent([7,7], 1), [7])

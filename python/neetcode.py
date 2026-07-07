@@ -19,3 +19,18 @@ def groupAnagrams(strs: List[str]) -> List[List[str]]:
         s_sorted = ''.join(sorted(s))
         ht[s_sorted] = ht.get(s_sorted, []) + [s]
     return list(ht.values())
+
+def topKFrequent(nums: List[int], k: int) -> List[int]:
+    nums_len = len(nums)
+    ht = frequencies(nums)
+    buckets = [[]] * (nums_len + 1)
+    for num, count in ht.items():
+        buckets[count] = buckets[count] + [num]
+
+    resp = []
+    for freq in range(nums_len, 0, -1):
+        if buckets[freq]:
+            for num in buckets[freq]:
+                resp.append(num)
+                if len(resp) == k:
+                    return resp
