@@ -1,3 +1,5 @@
+from typing import List
+
 # utils
 def frequencies(w):
     ht = {}
@@ -9,7 +11,25 @@ def frequencies(w):
 # not brute force (no sorting letters)
 # yep I know to make it more efficient cut short if len differs and when finding a different char
 def isAnagram(s: str, t: str) -> bool:
+    if len(s) != len(t): return False
     return frequencies(s) == frequencies(t)
+
+# https://neetcode.io/problems/two-integer-sum
+def twoSum(nums: List[int], target: int) -> List[int]:
+    for id, curr in enumerate(nums):
+        diff = target - curr
+        if diff in nums[id+1:]:
+            second_id = nums.index(diff) if curr != diff else  [i for i, x in enumerate(nums) if x == curr][1]
+            return [id,  second_id]
+
+# clever! Instead of checking current and looking ahead of a match, we store prev val first and then check target backwards
+# def twoSum(nums: List[int], target: int) -> List[int]:
+#     temp = dict()
+#     for i, num in enumerate(nums):
+#         if num in temp:
+#             return [temp[num],i]
+#         else:
+#             temp[target-num] = i
 
 # https://neetcode.io/problems/anagram-groups
 # hint 2 and 3 rejected as in a real world scenario what's described as naive in hint 1 actually wins
