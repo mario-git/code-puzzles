@@ -55,3 +55,45 @@ def topKFrequent(nums: List[int], k: int) -> List[int]:
                 resp.append(num)
                 if len(resp) == k:
                     return resp
+
+# https://neetcode.io/problems/string-encode-and-decode
+def encode(strs: List[str]) -> str:
+    return "".join([f"{str(len(s))}#{s}" for s in strs])
+
+def decode(s: str) -> List[str]:
+    idx = 0
+    s_len = len(s)
+    res = []
+    partial_len_acc = ""
+    while idx < s_len:
+        curr = s[idx]
+        # somehow str.isdigit(curr) is waay faster than curr.isdigit()
+        if str.isdigit(curr):
+            partial_len_acc = partial_len_acc + curr
+            idx = idx+1
+        elif curr == "#":
+            next_str_len = int(partial_len_acc)
+            next_word_from = idx+1
+            next_word_to = next_word_from + next_str_len
+            # sure a Clojure dev prefers the first version, but the second (with .append) is ludicrously faster :)
+            # res = res + [s[next_word_from:next_word_to]]
+            res.append(s[next_word_from:next_word_to])
+            idx = next_word_to
+            partial_len_acc = ""
+        else:
+            raise Exception("no way")
+    return res
+
+# Claude (browser) version of the above, performs the same but thanks to .index it makes everything more compact
+# def decode(s: str) -> List[str]:
+#     idx = 0
+#     s_len = len(s)
+#     res = []
+#     while idx < s_len:
+#         hash_idx = s.index("#", idx)
+#         next_str_len = int(s[idx:hash_idx])
+#         next_word_from = hash_idx + 1
+#         next_word_to = next_word_from + next_str_len
+#         res.append(s[next_word_from:next_word_to])
+#         idx = next_word_to
+#     return res

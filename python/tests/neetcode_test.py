@@ -22,3 +22,11 @@ class NeetcodeTest(unittest.TestCase):
     def test_top_k_frequent(self):
         self.assertEqual(sorted(n.topKFrequent([1,2,2,3,3,3], 2)), [2,3])
         self.assertEqual(n.topKFrequent([7,7], 1), [7])
+
+    def test_encode_decode(self):
+        self.assertEqual(n.encode(["Hello","World"]), "5#Hello5#World")
+        self.assertEqual(n.decode("5#Hello5#World"), ["Hello","World"])
+        self.assertEqual(n.encode([""]), "0#")
+        self.assertEqual(n.decode("0#"), [""])
+        self.assertEqual(n.decode(n.encode(["Hello","World"])), ["Hello","World"])
+        self.assertEqual(n.decode(n.encode([""])), [""])
