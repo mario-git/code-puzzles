@@ -1,4 +1,4 @@
-import neetcode as n
+import neetcode_01_arrhash as n
 import unittest
 
 def normalize(lst):
