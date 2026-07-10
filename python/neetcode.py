@@ -16,11 +16,11 @@ def isAnagram(s: str, t: str) -> bool:
 
 # https://neetcode.io/problems/two-integer-sum
 def twoSum(nums: List[int], target: int) -> List[int]:
-    for id, curr in enumerate(nums):
+    for idx, curr in enumerate(nums):
         diff = target - curr
-        if diff in nums[id+1:]:
+        if diff in nums[idx+1:]:
             second_id = nums.index(diff) if curr != diff else  [i for i, x in enumerate(nums) if x == curr][1]
-            return [id,  second_id]
+            return [idx,  second_id]
 
 # clever! Instead of checking current and looking ahead of a match, we store prev val first and then check target backwards
 # def twoSum(nums: List[int], target: int) -> List[int]:
