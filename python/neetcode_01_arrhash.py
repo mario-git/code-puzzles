@@ -116,17 +116,6 @@ def productExceptSelf(nums: List[int]) -> List[int]:
 
 # https://neetcode.io/problems/valid-sudoku
 def isValidSudoku(board: List[List[str]]) -> bool:
-    def frequencies(w):
-        to_skip = "."
-        ht = {}
-        for c in w:
-            if c != to_skip: ht[c] = ht.get(c, 0) + 1
-        return ht
-
-    def only_one(x):
-        len_x = len(x)
-        return len_x == 0 or (len_x == 1 and 1 in x)
-
     def column_at_idx(board, idx):
         return [board[0][idx], board[1][idx], board[2][idx],
                 board[3][idx], board[4][idx], board[5][idx],
@@ -135,29 +124,22 @@ def isValidSudoku(board: List[List[str]]) -> bool:
     def box_at_idx(board, idx):
         add_to_x = 0
         add_to_y = 0
-        if idx in (1, 4, 7):
-            add_to_x = 3
-        elif idx in (2, 5, 8):
-            add_to_x = 6
+        if idx in (1, 4, 7): add_to_x = 3
+        elif idx in (2, 5, 8): add_to_x = 6
 
-        if idx in (3, 4, 5):
-            add_to_y = 3
-        elif idx in (6, 7, 8):
-            add_to_y = 6
+        if idx in (3, 4, 5): add_to_y = 3
+        elif idx in (6, 7, 8): add_to_y = 6
 
-        return [
-            board[add_to_x][add_to_y], board[add_to_x+1][add_to_y], board[add_to_x+2][add_to_y],
-            board[add_to_x][add_to_y+1], board[add_to_x+1][add_to_y+1], board[add_to_x+2][add_to_y+1],
-            board[add_to_x][add_to_y+2], board[add_to_x+1][add_to_y+2], board[add_to_x+2][add_to_y+2],]
+        return [board[add_to_x][add_to_y], board[add_to_x+1][add_to_y], board[add_to_x+2][add_to_y],
+                board[add_to_x][add_to_y+1], board[add_to_x+1][add_to_y+1], board[add_to_x+2][add_to_y+1],
+                board[add_to_x][add_to_y+2], board[add_to_x+1][add_to_y+2], board[add_to_x+2][add_to_y+2],]
 
     for idx in range(0, 9):
-        x = frequencies(board[idx])
-        if not only_one(set(x.values())): return False
-
-        y = frequencies(column_at_idx(board, idx))
-        if not only_one(set(y.values())): return False
-
-        box = frequencies(box_at_idx(board, idx))
-        if not only_one(set(box.values())): return False
+        for to_check in (board[idx], column_at_idx(board, idx), box_at_idx(board, idx)):
+            curr_set = set()
+            for curr in to_check:
+                if curr == ".": continue
+                if curr in curr_set: return False
+                curr_set.add(curr)
 
     return True
