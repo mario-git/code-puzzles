@@ -30,3 +30,7 @@ class NeetcodeTest(unittest.TestCase):
         self.assertEqual(n.decode("0#"), [""])
         self.assertEqual(n.decode(n.encode(["Hello","World"])), ["Hello","World"])
         self.assertEqual(n.decode(n.encode([""])), [""])
+
+    def test_product_array_except_self(self):
+        self.assertEqual(n.productExceptSelf([1,2,4,6]), [48,24,12,8])
+        self.assertEqual(n.productExceptSelf([-1,0,1,2,3]), [0,-6,0,0,0])

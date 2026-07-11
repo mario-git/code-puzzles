@@ -97,3 +97,19 @@ def decode(s: str) -> List[str]:
 #         res.append(s[next_word_from:next_word_to])
 #         idx = next_word_to
 #     return res
+
+# https://neetcode.io/problems/products-of-array-discluding-self
+def productExceptSelf(nums: List[int]) -> List[int]:
+    len_nums = len(nums)
+    leftside = res = [1] * len_nums
+    acc = 1
+    for idx in range(1, len_nums):
+        acc = nums[idx-1] * acc
+        leftside[idx] = acc
+
+    acc = 1
+    for idx in range(len_nums -1, -1, -1):
+        res[idx] = leftside[idx] * acc
+        acc = acc * nums[idx]
+
+    return res
