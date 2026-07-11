@@ -143,3 +143,16 @@ def isValidSudoku(board: List[List[str]]) -> bool:
                 curr_set.add(curr)
 
     return True
+
+# https://neetcode.io/problems/longest-consecutive-sequence
+def longestConsecutive(nums: List[int]) -> int:
+    lookup = set(nums)
+    ns = sorted(lookup)
+    longest = 0
+    strike_len = 0
+    for n in ns:
+        strike_len = strike_len + 1
+        if (n+1) in lookup: continue
+        if strike_len > longest: longest = strike_len
+        strike_len = 0
+    return longest

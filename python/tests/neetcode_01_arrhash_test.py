@@ -66,3 +66,7 @@ class NeetcodeTest(unittest.TestCase):
             [".",".",".","3","4",".",".",".","."],
             [".",".",".",".",".","3",".",".","."],
             [".",".",".",".",".","5","2",".","."]]))
+
+    def test_longest_consecutive(self):
+        self.assertEqual(n.longestConsecutive([2,20,4,10,3,4,5]), 4)
+        self.assertEqual(n.longestConsecutive([0,3,2,5,4,6,1,1]), 7)
