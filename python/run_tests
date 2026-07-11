@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-python -m unittest tests/*test.py
+$(command -v python || command -v python3) -m unittest tests/*test.py
