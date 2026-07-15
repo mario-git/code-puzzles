@@ -4,7 +4,7 @@ import unittest
 def normalize(lst):
     return sorted(sorted(group) for group in lst)
 
-class NeetcodeTest(unittest.TestCase):
+class NeetCodeArrayAndHashesTest(unittest.TestCase):
     def test_is_anagram(self):
         self.assertTrue(n.isAnagram("racecar", "carrace"))
         self.assertFalse(n.isAnagram("jam", "jar"))

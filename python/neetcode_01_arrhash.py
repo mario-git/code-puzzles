@@ -33,6 +33,8 @@ def twoSum(nums: List[int], target: int) -> List[int]:
 
 # https://neetcode.io/problems/anagram-groups
 # hint 2 and 3 rejected as in a real world scenario what's described as naive in hint 1 actually wins
+# ... revisiting this a few days afterwards, hints 2/3 appear less ugly as long as we don't constraint to fixed chars array
+# that assumes no accents, etc
 def groupAnagrams(strs: List[str]) -> List[List[str]]:
     ht = {}
     for s in strs:
@@ -46,6 +48,7 @@ def topKFrequent(nums: List[int], k: int) -> List[int]:
     ht = frequencies(nums)
     buckets = [[]] * (nums_len + 1)
     for num, count in ht.items():
+        # implicitly, index of buckets = identifier for group of lentgth idx. Ugly I know
         buckets[count] = buckets[count] + [num]
 
     resp = []
