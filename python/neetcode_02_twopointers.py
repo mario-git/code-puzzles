@@ -18,19 +18,42 @@ def isPalindrome(s: str) -> bool:
 # https://neetcode.io/problems/two-integer-sum-ii
 def twoSum(numbers: List[int], target: int) -> List[int]:
     from_bottom = 0
-    len_nums = len(numbers)
-    from_top = len_nums-1
+    from_top = len(numbers)-1
     while from_bottom < from_top:
         curr = numbers[from_bottom] + numbers[from_top]
         if curr == target:
             return [from_bottom+1, from_top+1]
         elif curr < target:
-            from_bottom = from_bottom +1
+            from_bottom = from_bottom+1
         else:
             from_top = from_top-1
     return []
 
 # https://neetcode.io/problems/three-integer-sum
+def twoSumAllDistinctMatches(numbers, target):
+    from_bottom = 0
+    from_top = len(numbers)-1
+    res = []
+    while from_bottom < from_top:
+        curr = numbers[from_bottom] + numbers[from_top]
+        if curr == target:
+            next_res = [numbers[from_bottom], numbers[from_top]]
+            if res == [] or res[-1] != next_res:
+                res.append(next_res)
+            from_bottom = from_bottom +1
+            from_top = from_top-1
+        elif curr < target: from_bottom = from_bottom +1
+        else: from_top = from_top-1
+    return res
+
 def threeSum(nums: List[int]) -> List[List[int]]:
-    pass
-# 1) sort the list 2) loop and reuse the twoSum above
+    nums.sort()
+    idx = 0
+    res = []
+    limit = len(nums)-3
+    while idx <= limit:
+        curr = nums[idx]
+        matches = twoSumAllDistinctMatches(nums[idx+1:], -curr)
+        while curr == nums[idx] and idx <= limit: idx = idx+1
+        for m in matches: res.append([curr, m[0], m[1]])
+    return res
