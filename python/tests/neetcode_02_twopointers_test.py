@@ -9,3 +9,6 @@ class NeetCodeTwoPointersTest(unittest.TestCase):
         self.assertFalse(n.isPalindrome("tab a cat"))
         self.assertTrue(n.isPalindrome("  £$.... a    ......... a ......"))
         self.assertTrue(n.isPalindrome(" a "))
+
+    def test_two_sum(self):
+        self.assertEqual(n.twoSum([1,2,3,4], 3), [1,2])

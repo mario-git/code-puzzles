@@ -14,3 +14,18 @@ def isPalindrome(s: str) -> bool:
         from_bottom = from_bottom +1
         from_top = from_top - 1
     return True
+
+# https://neetcode.io/problems/two-integer-sum-ii
+def twoSum(numbers: List[int], target: int) -> List[int]:
+    from_bottom = 0
+    len_nums = len(numbers)
+    from_top = len_nums-1
+    while from_bottom < from_top:
+        curr = numbers[from_bottom] + numbers[from_top]
+        if curr == target:
+            return [from_bottom+1, from_top+1]
+        elif curr < target:
+            from_bottom = from_bottom +1
+        else:
+            from_top = from_top-1
+    return []
