@@ -29,3 +29,8 @@ def twoSum(numbers: List[int], target: int) -> List[int]:
         else:
             from_top = from_top-1
     return []
+
+# https://neetcode.io/problems/three-integer-sum
+def threeSum(nums: List[int]) -> List[List[int]]:
+    pass
+# 1) sort the list 2) loop and reuse the twoSum above
