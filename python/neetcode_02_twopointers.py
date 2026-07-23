@@ -57,3 +57,19 @@ def threeSum(nums: List[int]) -> List[List[int]]:
         while curr == nums[idx] and idx <= limit: idx = idx+1
         for m in matches: res.append([curr, m[0], m[1]])
     return res
+
+# https://neetcode.io/problems/max-water-container
+def maxArea(heights: List[int]) -> int:
+    from_left = 0
+    from_right = len(heights)-1
+    res = 0
+    while from_left < from_right:
+        h_left = heights[from_left]
+        h_right = heights[from_right]
+        partial_res = (from_right-from_left) * min(h_left, h_right)
+        if partial_res > res: res = partial_res
+        if h_left < h_right:
+            from_left = from_left+1
+        else:
+            from_right = from_right-1
+    return res

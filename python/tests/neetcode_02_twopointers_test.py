@@ -20,3 +20,7 @@ class NeetCodeTwoPointersTest(unittest.TestCase):
         self.assertEqual(n.threeSum([0,0,0,0]), [[0,0,0]])
         self.assertEqual(n.threeSum([-2,0,1,1,2]), [[-2,0,2],[-2,1,1]])
         self.assertEqual(n.threeSum([-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6]), [[-4,-2,6],[-4,0,4],[-4,1,3],[-4,2,2],[-2,-2,4],[-2,0,2]])
+
+    def test_max_water_container(self):
+        self.assertEqual(n.maxArea([1,7,2,5,4,7,3,6]), 36)
+        self.assertEqual(n.maxArea([2,2,2]), 4)
