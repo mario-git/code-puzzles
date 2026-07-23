@@ -24,3 +24,8 @@ class NeetCodeTwoPointersTest(unittest.TestCase):
     def test_max_water_container(self):
         self.assertEqual(n.maxArea([1,7,2,5,4,7,3,6]), 36)
         self.assertEqual(n.maxArea([2,2,2]), 4)
+
+    def test_trapping_rain_water(self):
+        self.assertEqual(n.trap([0,2,0,3,1,0,1,3,2,1]), 9)
+        self.assertEqual(n.trap([0,1,0,2,1,0,1,3,2,1,2,1]), 6)
+        self.assertEqual(n.trap([4,2,0,3,2,5]), 9)

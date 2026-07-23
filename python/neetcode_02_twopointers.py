@@ -73,3 +73,25 @@ def maxArea(heights: List[int]) -> int:
         else:
             from_right = from_right-1
     return res
+
+# https://neetcode.io/problems/trapping-rain-water
+def trap(height: List[int]) -> int:
+    l_height = len(height)
+    from_left = [0] * l_height
+    from_right = [0] * l_height
+    from_left[0] = height[0]
+    from_right[-1] = height[-1]
+    for idx in range(1, l_height-1):
+        from_left[idx] = max(from_left[idx-1], height[idx])
+        right_idx = l_height-idx-1
+        from_right[right_idx] = max(from_right[right_idx+1], height[right_idx])
+
+    res = 0
+    for idx in range(1, l_height-1):
+        l = from_left[idx-1]
+        r = from_right[idx+1]
+        curr = height[idx]
+        if curr < l and curr < r:
+            res = res + min(l,r) - curr
+
+    return res
